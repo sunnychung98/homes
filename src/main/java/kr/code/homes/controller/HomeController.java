@@ -4,6 +4,7 @@ import kr.code.homes.service.TestService;
 import kr.code.homes.vo.TestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,18 +25,20 @@ public class HomeController {
 
     @RequestMapping("/main/view")
     public ModelAndView main(@RequestParam(value="id", required=false) String userId) {
-        ModelAndView view = new ModelAndView();
+        ModelAndView mav = new ModelAndView();
         try {
             Map<String, Object> param = new HashMap<String, Object>();
             List<TestVO> list = service.getList(param);
 
-            view.addObject("list", list);
-            view.addObject("size", list == null ?  0 : list.size());
+            mav.addObject("list", list);
+            mav.addObject("size", list == null ?  0 : list.size());
+            mav.addObject("pageTitle", "Welcome Home!");
         }catch (Exception e){
             e.printStackTrace();
         }
 
-        view.setViewName("views/contents/main");
-        return view;
+        mav.setViewName("views/contents/main");
+
+        return mav;
     }
 }
