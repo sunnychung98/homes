@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" data-layout-decorate="~{layout/main_layout}">
-<div class="content-wrapper container" layout:fragment="content">
+<div class="content-wrapper" layout:fragment="content">
+    <main class="container">
+        <!-- Custom styles for this template -->
+        <link href="starter-template.css" th:href="@{/starter-template.css}" rel="stylesheet">
+        <div class="starter-template text-center py-5 px-3">
+            <h1>Bootstrap starter template</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+            <style>
+                table {
+                    border: 1px solid;
+                }
 
-    <style>
-        table {
-            border: 1px solid;
-        }
+                th,td{
+                    border: 1px solid;
+                }
 
-        th,td{
-            border: 1px solid;
-        }
+            </style>
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>코드</th>
+                        <th>이름</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="test, status : ${list}">
+                        <td th:text="${test.seqId}"></td>
+                        <td th:text="${test.setName}"></td>
+                    </tr>
 
-    </style>
+                    </tbody>
+                </table>
 
-    <div class="starter-template">
-        <table>
-            <thead>
-                <tr>
-                    <th>code</th>
-                    <th>이름</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="test, status : ${list}">
-                    <td th:text="${test.seqId}"></td>
-                    <td th:text="${test.setName}"></td>
-                </tr>
+            </div>
 
-            </tbody>
-        </table>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-    </div>
+    </main><!-- /.container -->
+
 </div>
 </html>

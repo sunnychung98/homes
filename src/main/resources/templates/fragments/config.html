@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head th:fragment="configFragment">
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="">
+    <title>Starter Template · Bootstrap v5.0</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
-    <title></title>
-    <!-- Custom styles for this template -->
-    <link href="../../static/starter-template.css" th:href="@{../../../starter-template.css}" rel="stylesheet">
-    <link href="../../static/signin.css" th:href="@{../../../signin.css}" rel="stylesheet">
 
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="signin.css" th:href="@{/signin.css}" rel="stylesheet">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -28,5 +29,6 @@
             }
         }
     </style>
+
 </head>
 </html>
