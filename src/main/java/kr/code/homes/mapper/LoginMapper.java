@@ -10,6 +10,6 @@ import java.sql.SQLException;
 @Mapper
 public interface LoginMapper {
 
-    MemberVO loginCheck() throws SQLException;
+    MemberVO loginCheck(MemberVO vo) throws SQLException;
 
 }

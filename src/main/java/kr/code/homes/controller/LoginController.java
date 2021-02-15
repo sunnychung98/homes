@@ -36,7 +36,7 @@ public class LoginController {
     @RequestMapping(value="/loginOk", method=RequestMethod.POST)
     public ModelAndView loginOk(MemberVO vo) throws SQLException {
         ModelAndView mav = new ModelAndView();
-        MemberVO resultVO = service.loginCheck();
+        MemberVO resultVO = service.loginCheck(vo);
         if(resultVO == null){
             mav.setViewName("/views/contents/login");
             System.out.println("로그인실패");

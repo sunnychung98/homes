@@ -21,7 +21,7 @@ public class LoginService {
         this.mapper=loginMapper;
     }
 
-    public MemberVO loginCheck() throws SQLException {
-        return mapper.loginCheck();
+    public MemberVO loginCheck(MemberVO vo) throws SQLException {
+        return mapper.loginCheck(vo);
     }
 }
