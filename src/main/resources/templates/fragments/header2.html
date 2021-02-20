@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header class="main-header" th:fragment="headerFragment">
+    <style>
+        .navbar{width:100%; height:100px;}
+        @font-face{
+            font-family:"gilbert";
+            src:url("/myapp/resources/css/font/Gilbert-Bold Preview5.otf") format("truetype");
+            font-style:normal;
+            font-weight:normal;
+        }
+
+        @font-face{
+            font-family:"lot";
+            src:url("/myapp/resources/css/font/Lot-Regular.otf") format("truetype");
+            font-style:normal;
+            font-weight:normal;
+        }
+
+        @font-face{
+            font-family:"saint";
+            src:url("/myapp/resources/css/font/SaintGeorge-LowercaseStencil.otf") format("truetype");
+            font-style:normal;
+            font-weight:normal;
+        }
+
+        @font-face{
+            font-family:"SCDream5";
+            src:url("/myapp/resources/css/font/SCDream5.otf") format("truetype");
+            font-style:normal;
+            font-weight:normal;
+        }
+
+        @font-face{
+            font-family:"SCDream3";
+            src:url("/myapp/resources/css/font/SCDream3.otf") format("truetype");
+            font-style:normal;
+            font-weight:normal;
+        }
+        @font-face{
+            font-family:"SCDream3";
+            src:url("/myapp/resources/css/font/SCDream3.otf") format("truetype");
+            font-style:normal;
+            font-weight:normal;
+        }
+        @font-face{
+            font-family:"SCDream5";
+            src:url("/myapp/resources/css/font/SCDream5.otf") format("truetype");
+            font-style:normal;
+            font-weight:normal;
+        }
+
+
+
+        .navbar{
+            font-family: 'SCDream5';
+            font-size:20px;
+            max-height:80px;
+
+        }
+        #home{
+            font-family:'lot';
+            height:70px;
+        }
+        #homesLogo span{
+            font-size:50px;
+        }
+
+        .nav-item a:hover{
+            color:#EE8374;
+        }
+
+        .searchBox{
+            display:flex;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div id="home" style="padding-left:10px;padding-right:50px;">
+            <a href="/myapp/" id="homesLogo">
+                <span  style="color:#EE8374">h</span><span style="color:#000000">o</span><span style="color:#EE8374">m</span><span style="color:#000000">es</span>
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInDown fadeInRight fadeInUp fadeInLeft" style="height:70px;">
+            <ul class="nav navbar-nav mr-auto" style="height:70px;">
+
+                <li class="nav-item dropdown" style="height:70px;line-height:70px;">
+                    <a class="nav-link" href="/myapp/homeboardHome"
+                       id="navbarDropdown" role="button" data-hover="dropdown" style="color:black;height:70px;padding:0;margin-right:20px;"
+                       aria-haspopup="true" aria-expanded="false" > 집들이 </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="top:60px;">
+                        <a class="dropdown-item" href="/myapp/homeboardHome">집들이홈</a> <a
+                            class="dropdown-item"
+                            href="/myapp/homeboardTop?order=recentBest">베스트</a> <a
+                            class="dropdown-item" href="/myapp/homeboardTheme?hb_theme_no=0">테마별</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link" href="/myapp/storeHome?order=recent" id="navbarDropdown"
+                       role="button" data-hover="dropdown" aria-haspopup="true" style="color:black;height:70px;padding:0;margin-right:20px;"
+                       aria-expanded="false"> 스토어 </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/myapp/storeHome?order=recent">스토어홈</a> <a
+                            class="dropdown-item" href="/myapp/storeCategory?main_c=가구&sub_c=total">카테고리</a> <a
+                            class="dropdown-item" href="/myapp/storeBest?order=recentBest">베스트</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link" href="/myapp/qnaMain" style="color:black;height:70px;padding:0;margin-right:20px;" >질문과답변</a>
+
+                </li>
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link" href="/myapp/mypageHome" id="navbarDropdown"
+                       role="button" data-hover="dropdown" aria-haspopup="true" style="color:black;height:70px;padding:0;margin-right:20px;"
+                       aria-expanded="false"> 마이페이지 </a>
+
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="top:60px;">
+                        <a class="dropdown-item" href="/myapp/mypageHome?userid=${userid }">마이페이지홈</a> <a
+                            class="dropdown-item" href="/myapp/mypageShopping">나의쇼핑</a> <a
+                            class="dropdown-item" href="/myapp/mypageWishlist">위시리스트</a> <a
+                            class="dropdown-item" href="/myapp/userEdit">회원정보</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="searchBox" style="margin-right:80px;width:220px;">
+                <input type="text" class="form-control" placeholder="Search"
+
+                       id="searchKey" aria-label="Search" <c:if test="${key !=null }"> value='${key }' </c:if>
+
+                aria-describedby="searchA" style="width:200px;border-radius:30px;">
+                <button type="button" id="searchBtn" class="btn searchBtn" style="border-radius:30px;background-color:#EE8374;color:white;border:none;margin-right:10px;">
+                    <i class="fas fa-search"></i></button>
+
+
+
+            </div>
+
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link"
+                                        href="/myapp/cartList"><i class="fas fa-shopping-cart"
+                                                                  style="color:#EE8374"></i></a></li>
+                <c:if test="${logStatus==null || logStatus!='Y' }">
+                    <li class="nav-item" style="margin: 0px">
+
+                        <a class="nav-link" href="/myapp/login" style="margin-right:20px;font-size:16px;color:black;">로그인</a>
+                    </li>
+                    <li style="padding-top:7px;">
+                        <span style="margin-right:20px;color:black;font-size:20px;">|</span>
+                    </li>
+                    <li class="nav-item" style="margin: 0px">
+
+                        <a class="nav-link" href="/myapp/register"
+                           style="margin-right: 20px;font-size:16px;color:black;">회원가입</a>
+
+                    </li>
+                </c:if>
+                <c:if test="${logStatus=='Y' }">
+                    <li class="nav-item" style="margin: 0px">
+                        <h6>
+                            <a class="nav-link" href="/myapp/mypageHome" style="padding:32px 0 0 30px;">${username}님   |  </a>
+                        </h6>
+                    </li>
+                    <li class="nav-item" style="margin: 0px;">
+                        <h6>
+                            <a class="nav-link" href="/myapp/logout"
+                               style="margin-right: 20px;padding:32px 0 0 10px;">로그아웃</a>
+                        </h6>
+                </c:if>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link writeBtn btn"
+                       href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" style="height:45px;width:110px;font-size:17px;margin-left:50px;margin-top:23px;background-color:#EE8374;"
+                    >
+                        <span style="color:white;">글쓰기</span>
+                        <i class="fas fa-pen" style="color:white;"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="top:70px;">
+                        <a class="dropdown-item" href="/myapp/homeboardWrite">집들이</a> <a
+                            class="dropdown-item" href="/myapp/qnaWrite">질문과답변</a> <a
+                            class="dropdown-item" href="/myapp/mypageShopping">리뷰작성</a>
+                    </div></li>
+            </ul>
+        </div>
+    </nav>
+</header>
