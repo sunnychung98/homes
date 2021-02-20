@@ -1,6 +1,5 @@
 package kr.code.homes.config;
 
-
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -33,4 +32,3 @@ public class ProcessInterceptor implements HandlerInterceptor {
             return false;
         }
     }
-}
